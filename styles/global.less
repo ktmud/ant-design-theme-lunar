@@ -1,0 +1,10 @@
+@import "../node_modules/antd/lib/style/index.less";
+@import "../node_modules/antd/lib/style/components.less";
+
+// Override antd variables. Can use `xxx-prefix` to scope the CSS
+@import "./antd-custom.less";
+
+// Global CSS
+// module.css does not support SSR, so we add all CSS needed for initial
+// rendering here.
+@import "./home.less";
