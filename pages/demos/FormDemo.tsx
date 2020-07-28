@@ -106,7 +106,7 @@ export default function FormDemo() {
       </FormItem>
 
       <FormItem name="switch" label="Switch" valuePropName="checked">
-        <Switch />
+        <Switch size={size === 'large' ? 'default' : 'small'} />
       </FormItem>
 
       <FormItem name="checkbox" valuePropName="checked">
