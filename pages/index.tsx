@@ -3,7 +3,7 @@ import { Divider, Row, Col } from 'antd';
 import FormDemo from './demos/FormDemo';
 
 export default () => (
-  <>
+  <div style={{ maxWidth: 1200, paddingBottom: 60 }}>
     <Head>
       <title>Lunar + Ant Design</title>
       <link rel="icon" href="/favicon.ico" />
@@ -14,7 +14,11 @@ export default () => (
           Ant Design
         </a>
         {' + '}
-        <a href="https://github.com/airbnb/lunar" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/airbnb/lunar"
+          target="_blank"
+          rel="noreferrer"
+        >
           Lunar
         </a>
       </h1>
@@ -23,9 +27,17 @@ export default () => (
       <Col span={6} className="sidebar">
         <h2>Form</h2>
       </Col>
-      <Col span={14}>
+      <Col span={12}>
         <FormDemo />
       </Col>
+      <Col span={4}>
+        <a
+          href="https://airbnb.io/lunar/?path=/story/forms-form--with-all-fields"
+          target="_blank"
+        >
+          Compare with Lunar
+        </a>
+      </Col>
     </Row>
-  </>
+  </div>
 );

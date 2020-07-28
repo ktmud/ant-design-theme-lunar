@@ -9,22 +9,44 @@ import {
   Slider,
   Button,
   Radio,
+  Checkbox,
+  List,
 } from 'antd';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import css from './FormDemo.module.less';
 
 const { TextArea } = Input;
 const { Item: FormItem } = Form;
+const { Group: CheckboxGroup } = Checkbox;
+const { Item: ListItem } = List;
 const { Option } = Select;
 const validateMessages = {
-  required: '${label} is required',
+  required: 'Field is required.',
+  types: {
+    email: 'Invalid email address.',
+  },
 };
+
+const checkboxOptions = [
+  {
+    value: 'foo',
+    label: 'Foo',
+  },
+  {
+    value: 'bar',
+    label: 'Bar',
+  },
+  {
+    value: 'baz',
+    label: 'Baz',
+  },
+];
 
 export default function FormDemo() {
   const [size, setSize] = useState('large' as SizeType);
   return (
     <Form
       layout="vertical"
-      style={{ maxWidth: 600, paddingBottom: '40px' }}
       hideRequiredMark
       name="demo"
       initialValues={{
@@ -39,7 +61,7 @@ export default function FormDemo() {
       }}
       validateMessages={validateMessages}
     >
-      <Form.Item name="size" label="Form Size">
+      <Form.Item name="size" label="Form input size">
         <Radio.Group size={size} onChange={(e) => setSize(e.target.value)}>
           <Radio.Button value="small">Small</Radio.Button>
           <Radio.Button value="middle">Middle</Radio.Button>
@@ -69,13 +91,13 @@ export default function FormDemo() {
       </FormItem>
 
       <FormItem name="multiselect" label="Multi select">
-        <Select size={size} mode="multiple">
+        <Select size={size} mode="tags" placeholder="Type to search">
           <Option value="foo">Foo</Option>
           <Option value="bar">Bar</Option>
           <Option value="disabled" disabled>
             disabled
           </Option>
-          <Option value="yiminghe">Barz</Option>
+          <Option value="barz">Barz</Option>
         </Select>
       </FormItem>
 
@@ -83,16 +105,40 @@ export default function FormDemo() {
         <DatePicker size={size} name="startDate" style={{ width: '100%' }} />
       </FormItem>
 
-      <FormItem
-        name="switch"
-        label="Switch"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 8 }}
-        valuePropName="checked"
-      >
+      <FormItem name="switch" label="Switch" valuePropName="checked">
         <Switch />
       </FormItem>
 
+      <FormItem name="checkbox" valuePropName="checked">
+        <Checkbox>Single checkbox</Checkbox>
+      </FormItem>
+
+      <FormItem label="Checkboxes" name="checkboxes" valuePropName="checked">
+        <List
+          dataSource={checkboxOptions}
+          renderItem={(item) => {
+            return (
+              <ListItem>
+                <label>
+                  <ListItem.Meta
+                    avatar={<Checkbox value={item.value} />}
+                    title={item.label}
+                    description={
+                      <>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nam leo erat, lacinia nec porttitor sed, mollis sed
+                        nibh. Nam porta sit amet risus quis interdum. Sed
+                        feugiat lorem vitae augue blandit, sed mollis mi
+                        laoreet.
+                      </>
+                    }
+                  />
+                </label>
+              </ListItem>
+            );
+          }}
+        />
+      </FormItem>
       <FormItem name="slider" label="Slider" wrapperCol={{ span: 10 }}>
         <Slider min={0} max={10} />
       </FormItem>

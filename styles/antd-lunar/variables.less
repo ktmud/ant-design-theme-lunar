@@ -1,0 +1,49 @@
+@text-color: rgb(72, 72, 72);
+@heading-color: @text-color;
+@primary-color: #6f44ff;
+@error-color: rgb(210, 21, 21);
+
+@font-size-base: 15px;
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+  Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+@border-radius-base: 4px;
+@border-width-base: 2px;
+@border-color-base: rgb(214, 214, 214);
+
+// dimensions
+@height-base: 36px;
+@height-lg: 42px;
+@height-sm: 30px;
+
+@padding-lg: 24px; // containers
+@padding-md: 16px; // small containers and buttons
+@padding-sm: 12px; // Form controls and items
+@padding-xs: 8px; // small items
+@padding-xss: 4px; // more small
+
+// menu and select
+@dropdown-vertical-padding: @padding-xs;
+
+// buttons
+@btn-primary-shadow: none;
+@btn-shadow: none;
+@slider-rail-background-color: rgb(214, 214, 214);
+@slider-track-background-color: @primary-color;
+@slider-track-background-color-hover: @primary-color;
+@slider-handle-color: @primary-color;
+@slider-handle-color-focus: @primary-color;
+@slider-dot-border-color: @primary-color;
+@slider-dot-border-color-active: @primary-color;
+@slider-handle-size: 18px;
+@slider-handle-margin-top: -6px;
+// @radio-focus-shadow: #fff 0px 0px 0px 2px,
+//   @primary-color 0px 0px 0px 3px, rgba(255, 255, 255, 0.5) 0px 0px 0px 4px;
+
+.@{form-item-prefix-cls} {
+  &-label {
+    > label {
+      font-weight: 700;
+    }
+  }
+}
